@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .content {
+            max-height: 100px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .show-more {
+            cursor: pointer;
+            color: #ffffff;
+            display: block;
+            margin-top: 10px;
+            background-color: brown;
+            padding: 5px 7px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae aut est, reprehenderit asperiores tenetur quae eum, temporibus id, minus vel voluptatum. Molestiae repellat facere delectus illo dignissimos laborum voluptate dolore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius assumenda blanditiis eum laboriosam eos possimus, rem, obcaecati aliquid at quis, quisquam sint illum unde atque quidem similique? Doloribus, odit officiis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi accusantium, ipsum dicta labore nostrum pariatur cumque modi molestiae odio. Aperiam, modi sequi unde voluptatibus eum aut cum placeat at hic.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae aut est, reprehenderit asperiores tenetur quae eum, temporibus id, minus vel voluptatum. Molestiae repellat facere delectus illo dignissimos laborum voluptate dolore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius assumenda blanditiis eum laboriosam eos possimus, rem, obcaecati aliquid at quis, quisquam sint illum unde atque quidem similique? Doloribus, odit officiis.
+              </p>
+              <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi accusantium, ipsum dicta labore nostrum pariatur cumque modi molestiae odio. Aperiam, modi sequi unde voluptatibus eum aut cum placeat at hic.
+              </p>
+        </div>
+
+    </div>
+
+    <script>
+
+       
+        const contentContainers= document.querySelectorAll('.content');
+
+        contentContainers.forEach((content, index) => {
+            const showMoreButton = document.createElement('button');
+            showMoreButton.classList.add('show-more');
+            showMoreButton.innerHTML = 'Show more &#9660'; 
+            content.parentNode.insertBefore(showMoreButton, content.nextSibling);
+
+            showMoreButton.addEventListener('click', function () {
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    showMoreButton.innerHTML = 'Show more &#9660'; 
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    showMoreButton.innerHTML = 'Show less &#9650'; 
+                }
+            });
+
+        });
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
